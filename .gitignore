@@ -1,0 +1,26 @@
+# Application config (Chặn file chứa mật khẩu / config)
+application.properties
+application.yml
+application-*.properties
+application-*.yml
+
+# Node / Frontend
+node_modules/
+dist/
+build/
+.env
+.env.local
+
+# Java / Backend (Spring Boot, Maven, Gradle)
+target/
+.gradle/
+*.class
+*.jar
+*.war
+
+# IDE & OS
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
