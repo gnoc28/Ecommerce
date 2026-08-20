@@ -1,0 +1,19 @@
+# Node / Frontend
+node_modules/
+dist/
+build/
+.env
+
+# Java / Backend (Spring Boot, Maven, Gradle)
+target/
+.gradle/
+build/
+*.class
+*.jar
+*.war
+
+# IDE & OS
+.idea/
+.vscode/
+*.iml
+.DS_Store

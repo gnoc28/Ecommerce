@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Frontend e-commerce cho Spring Boot API">
+    <title>Ecommerce Studio</title>
+</head>
+<body data-page="home">
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+
+    <div class="page-shell">
+        <header class="topbar">
+            <a class="brand" href="index.html">
+                <span class="brand-mark">ES</span>
+                <span class="brand-copy">
+                    <strong>Ecommerce Studio</strong>
+                    <small>Spring Boot storefront</small>
+                </span>
+            </a>
+
+            <div class="topbar-actions">
+                <button id="cart-button" class="ghost-button" type="button">
+                    Giỏ hàng
+                    <span id="cart-count" class="badge">0</span>
+                </button>
+                <span id="user-chip" class="user-chip">Khách</span>
+                <a id="login-link" class="primary-link" href="login.html">Đăng nhập</a>
+                <button id="logout-button" class="secondary-button" type="button" hidden>Đăng xuất</button>
+            </div>
+        </header>
+
+        <main>
+            <section class="hero-panel glass-card">
+                <div class="hero-copy">
+                    <p class="eyebrow">Cửa hàng trực tuyến</p>
+                    <h1>Trải nghiệm mua sắm gọn, nhanh và đủ dữ liệu từ BE của bạn.</h1>
+                    <p class="hero-text">
+                        FE này đã nối sẵn với các API sản phẩm, danh mục, giỏ hàng và đăng nhập của
+                        backend Spring Boot trong thư mục Ecommerce.
+                    </p>
+
+                    <div class="hero-metrics">
+                        <article>
+                            <strong>API Proxy</strong>
+                            <span>/api → localhost:8080</span>
+                        </article>
+                        <article>
+                            <strong>Product Grid</strong>
+                            <span>Tìm kiếm, lọc category, phân trang</span>
+                        </article>
+                        <article>
+                            <strong>Cart Panel</strong>
+                            <span>Thêm, cập nhật, xoá sản phẩm</span>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="hero-highlight">
+                    <div class="highlight-card">
+                        <p>Today’s focus</p>
+                        <h2>Responsive storefront</h2>
+                        <span>Thiết kế tối, sáng, chuyển động nhẹ và tương thích mobile.</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="catalog-grid">
+                <div class="catalog-main glass-card">
+                    <div class="section-head">
+                        <div>
+                            <p class="eyebrow">Khám phá</p>
+                            <h2>Sản phẩm nổi bật</h2>
+                        </div>
+                        <label class="search-field" for="keyword-input">
+                            <span>Tìm kiếm</span>
+                            <input id="keyword-input" type="search" placeholder="Nhập tên sản phẩm..." autocomplete="off">
+                        </label>
+                    </div>
+
+                    <div id="category-chips" class="chip-row"></div>
+                    <div id="page-status" class="status-banner" role="status" aria-live="polite"></div>
+                    <div id="product-grid" class="product-grid"></div>
+                    <div id="pagination" class="pagination"></div>
+                </div>
+
+                <aside id="cart-panel" class="cart-panel glass-card">
+                    <div class="section-head compact">
+                        <div>
+                            <p class="eyebrow">Giỏ hàng</p>
+                            <h2>Đơn hiện tại</h2>
+                        </div>
+                        <span id="cart-total-badge" class="pill">0 đ</span>
+                    </div>
+
+                    <div id="cart-items" class="cart-items"></div>
+
+                    <div class="cart-footer">
+                        <div class="total-row">
+                            <span>Tổng cộng</span>
+                            <strong id="cart-total">0 đ</strong>
+                        </div>
+                        <p class="muted">
+                            Bạn có thể cập nhật số lượng hoặc xoá từng sản phẩm ngay tại đây.
+                        </p>
+                    </div>
+                </aside>
+            </section>
+        </main>
+    </div>
+
+    <div id="product-modal" class="modal" hidden>
+        <div class="modal-backdrop" data-action="close-modal"></div>
+        <article class="modal-card glass-card">
+            <button class="icon-button modal-close" type="button" data-action="close-modal">×</button>
+            <div class="modal-body">
+                <img id="product-detail-image" class="modal-image" alt="Hình sản phẩm">
+                <div class="modal-copy">
+                    <p id="product-detail-meta" class="eyebrow">Chi tiết</p>
+                    <h3 id="product-detail-title"></h3>
+                    <p id="product-detail-description" class="modal-description"></p>
+                    <div class="modal-price-row">
+                        <strong id="product-detail-price"></strong>
+                        <span id="product-detail-stock" class="pill"></span>
+                    </div>
+                    <div class="modal-actions">
+                        <label class="quantity-field" for="detail-quantity">
+                            <span>Số lượng</span>
+                            <input id="detail-quantity" type="number" min="1" value="1">
+                        </label>
+                        <button id="detail-add-cart" class="primary-button" type="button">Thêm vào giỏ</button>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+
+    <script type="module" src="/app.js"></script>
+</body>
+</html>
